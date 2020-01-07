@@ -1,0 +1,73 @@
+if BOARD_CHUWI_MINIBOOK
+
+config BOARD_SPECIFIC_OPTIONS
+	def_bool y
+	select SYSTEM_TYPE_CONVERTIBLE
+	select BOARD_ROMSIZE_KB_8192
+	select SUPERIO_ITE_IT8987E
+	select SOC_INTEL_KABYLAKE
+	select SOC_INTEL_COMMON_BLOCK_HDA_VERB
+	select INTEL_GMA_HAVE_VBT
+	select MAINBOARD_HAS_LIBGFXINIT
+	select GFX_GMA_INTERNAL_IS_EDP
+	select GENERIC_SPD_BIN
+	select HAVE_ACPI_RESUME
+	select HAVE_ACPI_TABLES
+	select ADD_FSP_BINARIES
+	select FSP_USE_REPO
+
+config SPI_FLASH_INCLUDE_ALL_DRIVERS
+	bool
+	default n
+
+config SPI_FLASH
+	bool
+	default y
+
+config SPI_FLASH_WINBOND
+	bool
+	default y
+
+config DIMM_SPD_SIZE
+	int
+	default 512
+
+config VGA_BIOS_ID
+	string
+	default "8086,591c"
+
+config IRQ_SLOT_COUNT
+	int
+	default 18
+
+config MINIBOOK_EC_BIN_PATH
+	string
+	default "3rdparty/blobs/mainboard/$(CONFIG_MAINBOARD_DIR)/ec.bin"
+
+config FSP_FD_PATH
+	string
+	#default "3rdparty/fsp/AmberLakeFspBinPkg/Fsp.fd"
+	default "3rdparty/fsp/KabylakeFspBinPkg/Fsp.fd"
+
+config FSP_HEADER_PATH
+	string
+	#default "3rdparty/fsp/AmberLakeFspBinPkg/Include/"
+	default "3rdparty/fsp/KabylakeFspBinPkg/Include/"
+
+config MAX_CPUS
+	int
+	default 4
+
+config CBFS_SIZE
+	hex
+	default 0x600000
+
+config MAINBOARD_DIR
+	string
+	default "chuwi/minibook"
+
+config MAINBOARD_PART_NUMBER
+	string
+	default "MiniBook"
+
+endif

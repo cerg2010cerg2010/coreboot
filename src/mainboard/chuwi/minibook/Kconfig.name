@@ -1,0 +1,2 @@
+config BOARD_CHUWI_MINIBOOK
+	bool "MiniBook"
