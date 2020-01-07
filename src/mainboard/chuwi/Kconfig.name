@@ -1,0 +1,2 @@
+config VENDOR_CHUWI
+	bool "CHUWI Innovation And Technology(ShenZhen)co.,Ltd"

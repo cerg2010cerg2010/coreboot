@@ -1,0 +1,16 @@
+if VENDOR_CHUWI
+
+choice
+	prompt "Mainboard model"
+
+source "src/mainboard/chuwi/*/Kconfig.name"
+
+endchoice
+
+source "src/mainboard/chuwi/*/Kconfig"
+
+config MAINBOARD_VENDOR
+	string
+	default "CHUWI Innovation And Technology(ShenZhen)co.,Ltd"
+
+endif # VENDOR_CHUWI
